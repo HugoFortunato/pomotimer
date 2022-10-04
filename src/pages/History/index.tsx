@@ -1,4 +1,5 @@
-import { HistoryContainer, HistoryList, Status } from './styles'
+import { trData } from './content'
+import { HistoryContainer, HistoryList, Status , StatusTd} from './styles'
 
 export function History() {
   return (
@@ -16,54 +17,16 @@ export function History() {
             </tr>
           </thead>
           <tbody>
+            {trData.map((item, index) => (
             <tr>
-              <td>Tarefa</td>
-              <td>20 minutos</td>
-              <td>Há 2 meses</td>
-              <td>Concluído</td>
+              <td> {item.task} </td>
+              <td> {item.duration} </td>
+              <td> {item.start} </td>
+              <StatusTd statusColor={item.color}>
+                <Status statusBackground={item.color}> {item.status} </Status>
+              </StatusTd>
             </tr>
-            <tr>
-              <td>Tarefa</td>
-              <td>20 minutos</td>
-              <td>Há 2 meses</td>
-              <td>Concluído</td>
-            </tr>
-            <tr>
-              <td>Tarefa</td>
-              <td>20 minutos</td>
-              <td>Há 2 meses</td>
-              <td>Concluído</td>
-            </tr>
-            <tr>
-              <td>Tarefa</td>
-              <td>20 minutos</td>
-              <td>Há 2 meses</td>
-              <td>Concluído</td>
-            </tr>
-            <tr>
-              <td>Tarefa</td>
-              <td>20 minutos</td>
-              <td>Há 2 meses</td>
-              <td>
-                <Status statusColor="green">Concluído</Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Tarefa</td>
-              <td>20 minutos</td>
-              <td>Há 2 meses</td>
-              <td>
-                <Status statusColor='yellow'>Em andamento</Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Tarefa</td>
-              <td>20 minutos</td>
-              <td>Há 2 meses</td>
-              <td>
-                <Status statusColor="red">Interrompido</Status>
-              </td>
-            </tr>
+            ))}
           </tbody>
         </table>
       </HistoryList>
