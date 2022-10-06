@@ -1,5 +1,5 @@
 import { trData } from './content'
-import { HistoryContainer, HistoryList, Status , StatusTd} from './styles'
+import { HistoryContainer, HistoryList, Status} from './styles'
 
 export function History() {
   return (
@@ -22,9 +22,9 @@ export function History() {
               <td> {item.task} </td>
               <td> {item.duration} </td>
               <td> {item.start} </td>
-              <StatusTd statusColor={item.color}>
-                <Status statusBackground={item.color}> {item.status} </Status>
-              </StatusTd>
+              <td>
+                <Status statusColor={item.color as any}> {item.status} </Status>
+              </td>
             </tr>
             ))}
           </tbody>
