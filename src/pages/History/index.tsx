@@ -1,10 +1,15 @@
-import { trData } from './content'
-import { HistoryContainer, HistoryList, Status} from './styles'
+import { useContext } from 'react'
+import { CyclesContext } from '../../contexts/CyclesContext'
+import { HistoryContainer, HistoryList, Status } from './styles'
 
 export function History() {
+  const { cycles } = useContext(CyclesContext)
+
   return (
     <HistoryContainer>
       <h1>Meu histórico</h1>
+
+      <pre>{JSON.stringify(cycles, null, 2)}</pre>
 
       <HistoryList>
         <table>
@@ -17,16 +22,62 @@ export function History() {
             </tr>
           </thead>
           <tbody>
-            {trData.map((item, index) => (
             <tr>
-              <td> {item.task} </td>
-              <td> {item.duration} </td>
-              <td> {item.start} </td>
+              <td>Tarefa</td>
+              <td>20 minutos</td>
+              <td>Há 2 meses</td>
               <td>
-                <Status statusColor={item.color as any}> {item.status} </Status>
+                <Status statusColor="green">Concluído</Status>
               </td>
             </tr>
-            ))}
+            <tr>
+              <td>Tarefa</td>
+              <td>20 minutos</td>
+              <td>Há 2 meses</td>
+              <td>
+                <Status statusColor="green">Concluído</Status>
+              </td>
+            </tr>
+            <tr>
+              <td>Tarefa</td>
+              <td>20 minutos</td>
+              <td>Há 2 meses</td>
+              <td>
+                <Status statusColor="green">Concluído</Status>
+              </td>
+            </tr>
+            <tr>
+              <td>Tarefa</td>
+              <td>20 minutos</td>
+              <td>Há 2 meses</td>
+              <td>
+                <Status statusColor="green">Concluído</Status>
+              </td>
+            </tr>
+            <tr>
+              <td>Tarefa</td>
+              <td>20 minutos</td>
+              <td>Há 2 meses</td>
+              <td>
+                <Status statusColor="green">Concluído</Status>
+              </td>
+            </tr>
+            <tr>
+              <td>Tarefa</td>
+              <td>20 minutos</td>
+              <td>Há 2 meses</td>
+              <td>
+                <Status statusColor="yellow">Em andamento</Status>
+              </td>
+            </tr>
+            <tr>
+              <td>Tarefa</td>
+              <td>20 minutos</td>
+              <td>Há 2 meses</td>
+              <td>
+                <Status statusColor="red">Interrompido</Status>
+              </td>
+            </tr>
           </tbody>
         </table>
       </HistoryList>
